@@ -34,4 +34,12 @@
      다음의 경로에 복사&붙여넣기
      
      가. C:\Program Files\Java\jdk1.8.0_311\jre\lib\ext
-     나. 
+     나. C:\Program Files\Java\jre1.8.0_311\lib\ext
+
+
+※ 추후 JSP 실습을 위한 추가 설정
+   - 웹 서버에서 실절적으로 Oracle 용 JDBC 드라이버를 찾는 경로는
+     『아파치톰캣루트\lib』이기 때문에... 『ojdbc6.jar』파일을
+     이 경로에 복사&붙여넣기 한다.
+
+   - 아파치 톰캣 다운로드 경로 → http://tomcat.apache.org/
