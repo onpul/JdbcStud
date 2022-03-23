@@ -1,7 +1,6 @@
 INDEX VERSION 1.131+C:\JdbcStudy\.metadata\.plugins\org.eclipse.jdt.core
 3682201101.index
 3078077928.index
-3348818519.index
 2337812980.index
 3071372330.index
 3730967201.index
