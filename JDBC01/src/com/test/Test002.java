@@ -15,7 +15,7 @@ public class Test002
 	public static void main(String[] args)
 	{
 		//Connection conn = DBConn.getConnection();
-		Connection conn = DBConnBackup.getConnction();
+		Connection conn = DBConnBackup.getConnection();
 		// ※ DB 연결 과정이 가장 부하가 크기 때문에
 		//    한 번 연결된 객체를 계속 사용할 수 있도록 Singleton 패턴 적용~!!!
 		

@@ -25,6 +25,8 @@
 -------------------------------------------------------------
 */
 
+// 만드는 순서 : DBConn - DTO - DAO - Main
+
 package com.test;
 
 import java.util.Scanner;
@@ -54,9 +56,9 @@ public class ScoreMain
 					break;
 				}
 				
-				String kor = sc.next();
-				String eng = sc.next();
-				String mat = sc.next();
+				int kor = sc.nextInt();
+				int eng = sc.nextInt();
+				int mat = sc.nextInt();
 				
 				// MemberDTO 객체 생성
 				ScoreDTO dto = new ScoreDTO();
@@ -74,21 +76,21 @@ public class ScoreMain
 			
 			System.out.println();
 			System.out.println("-------------------------------------------------------------");
-			System.out.println("번호	이름	국어	영어	수학	총점	평균");
+			System.out.println("번호	이름	  국어	  영어	  수학	  총점	  평균");
 			System.out.println("-------------------------------------------------------------");
 			
 			// 리스트 가져와 출력
 			for (ScoreDTO obj : dao.lists())
 			{
-				System.out.printf("%s		%s	%s		%s		%s		%d		%d"
+				System.out.printf("%3s %7s %7d %7d %7d %7d %7.1f\n"
 						        , obj.getSid(), obj.getName(), obj.getKor(), obj.getEng(), obj.getMat()
-						        , (Integer.parseInt(obj.getKor()) + Integer.parseInt(obj.getEng()) + Integer.parseInt(obj.getMat()))
-				                , (Integer.parseInt(obj.getKor()) + Integer.parseInt(obj.getEng()) + Integer.parseInt(obj.getMat())) / 3);
+						        , obj.getKor() + obj.getEng() + obj.getMat()
+						        , (obj.getKor() + obj.getEng() + obj.getMat()) / 3.0);
 			}
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());
-			System.out.println("여기서 에러나는 거임1");
+			//System.out.println("여기서 에러나는 거임1");
 		}
 		finally 
 		{

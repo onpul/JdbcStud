@@ -34,7 +34,7 @@ public class ScoreDAO
 		
 		// 쿼리문 준비
 		String sql = String.format("INSERT INTO TBL_SCORE(SID, NAME, KOR, ENG, MAT)"
-				                 + " VALUES(MEMBERSEQ.NEXTVAL, '%s', '%d', '%d', '%d')"
+				                 + " VALUES(MEMBERSEQ.NEXTVAL, '%s', %d, %d, %d)"
 				                   , dto.getName(), dto.getKor(), dto.getEng(), dto.getMat());
 		
 		// 쿼리문 실행
@@ -97,9 +97,9 @@ public class ScoreDAO
 			
 			dto.setSid(rs.getString("SID"));
 			dto.setName(rs.getString("NAME"));
-			dto.setKor(rs.getString("KOR"));
-			dto.setEng(rs.getString("ENG"));
-			dto.setMat(rs.getString("MAT"));
+			dto.setKor(rs.getInt("KOR"));
+			dto.setEng(rs.getInt("ENG"));
+			dto.setMat(rs.getInt("MAT"));
 			
 			result.add(dto);
 		}
