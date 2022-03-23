@@ -11,7 +11,7 @@ public class DBConnBackup
 {
    private static Connection dbConn;
    
-   public static Connection getConnction()
+   public static Connection getConnection()
    {
       if (dbConn == null)
       {
@@ -20,7 +20,6 @@ public class DBConnBackup
             String url = "jdbc:oracle:thin:@localhost:1521:xe";
             String user = "scott";
             String pwd = "tiger";
-            
             Class.forName("oracle.jdbc.driver.OracleDriver");
             dbConn = DriverManager.getConnection(url,user,pwd);
             

@@ -6,7 +6,6 @@ FROM DUAL;
 TRUNCATE TABLE TBL_MEMBER;
 --==>> Table TBL_MEMBER이(가) 잘렸습니다.
 
-
 CREATE SEQUENCE MEMBERSEQ
 NOCACHE;
 --==>> Sequence MEMBERSEQ이(가) 생성되었습니다.
