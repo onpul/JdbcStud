@@ -1,0 +1,14 @@
+1. Connection conn = DBConn.getConnection();
+Connection은 인터페이스 / 인터페이스 타입의 객체 conn -> 인터페이스는 인스턴스 생성 불가하니까
+DBConn클래스의 getConnection()로 인스턴스 생성 => Connection 타입의 conn 객체 생성 완료
+-> 근데 객체 생성과 동시에 getConnection() 생성자 호출돼서 DB 연결 
+
+2. Statement stmt = conn.createStatement();
+Statement도 인터페이스 / Statement 타입으로 conn 클래스의 createStatement() 인스턴스 생성
+Statement (java.sql.Statement)는 Connection으로 연결한 객체에게, Query 작업을 실행하기 위한 객체.
+
+3. int result = stmt.executeUpdate(sql); // executeUpdate() 메소드는 적용된 행의 갯수를 반환
+
+4. ResultSet rs = stmt.executeQuery(sql); // execueQuery() 메소드는 질의 결과를 ResultSet 객체로 가져올 수 있음
+
+5. executeUpdate()는 int / execueQuery()는 ResultSet

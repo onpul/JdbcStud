@@ -68,6 +68,8 @@ public class ScoreMain
 				dto.setKor(kor);
 				dto.setEng(eng);
 				dto.setMat(mat);
+				//dto.setTot(tot);
+				//dto.setAvg(avg);
 				
 				// 데이터베이스 입력 메소드 호출
 				int result = dao.add(dto);
@@ -80,6 +82,7 @@ public class ScoreMain
 			System.out.println("-------------------------------------------------------------");
 			
 			// 리스트 가져와 출력
+			/*
 			for (ScoreDTO obj : dao.lists())
 			{
 				System.out.printf("%3s %7s %7d %7d %7d %7d %7.1f\n"
@@ -87,6 +90,14 @@ public class ScoreMain
 						        , obj.getKor() + obj.getEng() + obj.getMat()
 						        , (obj.getKor() + obj.getEng() + obj.getMat()) / 3.0);
 			}
+			*/
+			for (ScoreDTO obj : dao.lists())
+			{
+				System.out.printf("%3s %7s %7d %7d %7d %7d %7.1f\n"
+						        , obj.getSid(), obj.getName(), obj.getKor()
+						        , obj.getEng(), obj.getMat(), obj.getTot(), obj.getAvg());
+			}
+			
 		} catch (Exception e)
 		{
 			System.out.println(e.toString());

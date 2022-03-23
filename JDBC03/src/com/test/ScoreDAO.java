@@ -85,7 +85,7 @@ public class ScoreDAO
 		Statement stmt = conn.createStatement();
 		
 		// 쿼리문 준비
-		String sql = "SELECT SID, NAME, KOR, ENG, MAT FROM TBL_SCORE ORDER BY SID";
+		String sql = "SELECT SID, NAME, KOR, ENG, MAT, KOR+ENG+MAT AS TOT, ROUND((KOR+ENG+MAT)/3, 1) AS AVG FROM TBL_SCORE ORDER BY SID";
 		
 		// 쿼리문 실행
 		ResultSet rs = stmt.executeQuery(sql);
@@ -100,6 +100,8 @@ public class ScoreDAO
 			dto.setKor(rs.getInt("KOR"));
 			dto.setEng(rs.getInt("ENG"));
 			dto.setMat(rs.getInt("MAT"));
+			dto.setTot(rs.getInt("TOT"));
+			dto.setAvg(rs.getDouble("AVG"));
 			
 			result.add(dto);
 		}

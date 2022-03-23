@@ -27,22 +27,7 @@ public class MemberDAO
 {
 	// 주요 속성 구성 → DB 연결 객체
 	private Connection conn;
-	
-	//conn = DBConn.getConnection(); // 클래스 내부에서 처리 못함
-	
-	// getter /setter 구성 → 필요 없음. 연결만 전담하면 됨
-	/*
-	public Connection getConn()
-	{
-		return conn;
-	}
-	
-	public void setConn(Connection conn)
-	{
-		this.conn = conn;
-	}
-	*/
-	
+
 	// 생성자 정의(사용자 정의 생성자)
 	public MemberDAO() throws ClassNotFoundException, SQLException
 	{

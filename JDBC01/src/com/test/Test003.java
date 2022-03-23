@@ -31,6 +31,7 @@ public class Test003
 		{
 			// 작업 객체 구성(준비)
 			Statement stmt = conn.createStatement();
+			// Connection 객체가 제공하는 createStatement() 사용
 			
 			// ※ 데이터 입력 쿼리 실행 과정
 			//    한 번 실행하면 다시 실행하지 못하는 상황이다.

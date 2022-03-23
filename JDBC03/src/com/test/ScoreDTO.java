@@ -10,6 +10,7 @@ public class ScoreDTO
 	// 주요 속성 구성
 	private String sid, name;
 	private int kor, eng, mat, tot;
+	private double avg;
 	
 	// 게터 세터 구성 
 	// alt + shift + s + r
@@ -21,7 +22,6 @@ public class ScoreDTO
 	{
 		this.sid = sid;
 	}
-	
 	public String getName()
 	{
 		return name;
@@ -30,7 +30,6 @@ public class ScoreDTO
 	{
 		this.name = name;
 	}
-	
 	public int getKor()
 	{
 		return kor;
@@ -39,7 +38,6 @@ public class ScoreDTO
 	{
 		this.kor = kor;
 	}
-	
 	public int getEng()
 	{
 		return eng;
@@ -48,7 +46,6 @@ public class ScoreDTO
 	{
 		this.eng = eng;
 	}
-	
 	public int getMat()
 	{
 		return mat;
@@ -57,13 +54,20 @@ public class ScoreDTO
 	{
 		this.mat = mat;
 	}
-	
 	public int getTot()
 	{
 		return tot;
 	}
-	public void setTot(int kor, int eng, int mat)
+	public void setTot(int tot)
 	{
-		this.tot = kor + eng + mat;
+		this.tot = tot;
+	}
+	public double getAvg()
+	{
+		return avg;
+	}
+	public void setAvg(double avg)
+	{
+		this.avg = avg;
 	}
 }
