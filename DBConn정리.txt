@@ -54,8 +54,6 @@ public class DBConn
 	
 }
 
-
-
 // 2. try~catch
 
 package com.util;
