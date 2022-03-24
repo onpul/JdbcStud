@@ -8,7 +8,7 @@ package com.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 
-public class DBConnBackup
+public class DBConn
 {
    private static Connection dbConn;
    
