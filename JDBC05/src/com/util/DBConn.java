@@ -19,6 +19,10 @@ public class DBConn
          try
          {
             String url = "jdbc:oracle:thin:@localhost:1521:xe";
+            // 실무에서는 localhost가 아닌 ip 주소로
+            // 회사마다 1521을 다르게 쓸 수도 있다.
+            // ip 주소가 127로 시작하면... 스스로 진단하는 주소이다. -> loop back address
+            //           = localhost와 같다.
             String user = "scott";
             String pwd = "tiger";
             
