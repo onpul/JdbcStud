@@ -1,7 +1,7 @@
-/*=====================
+/*==========================================
 	MemberDAO.java
-=====================*/
-// 데이터베이스 액션 처리 전용 클래스
+	- 데이터베이스 액션 처리 전용 클래스
+==========================================*/
 
 package com.test;
 
@@ -276,4 +276,63 @@ public class MemberDAO
 		
 		return result;
 	}// end searchJikwi()
+	
+	
+	// 직위에 따른 최소 기본급 검색
+	public int searchBasicPay(String jikwi) throws SQLException
+	{
+		int result = 0;
+		
+		Statement stmt = conn.createStatement();
+		String sql = String.format("SELECT MIN_BASICPAY FROM TBL_JIKWI WHERE JIKWI_NAME='%s'", jikwi);
+		ResultSet rs = stmt.executeQuery(sql);
+		while (rs.next())
+		{
+			result = rs.getInt("MIN_BASICPAY");
+		}
+		
+		rs.close();
+		stmt.close();
+		
+		return result;
+	}// end searchBasicPay()
+	
+	
+	// 직원 데이터 수정
+	public int modify(MemberDTO dto) throws SQLException
+	{
+		int result = 0;
+		
+		Statement stmt = conn.createStatement();
+		String sql = String.format("UPDATE TBL_EMP"
+				+ " SET EMP_NAME='%s', SSN='%s', IBSADATE=TO_DATE('%s', 'YYYY-MM-DD')"
+				+ ", CITY_ID=(SELECT CITY_ID FROM TBL_CITY WHERE CITY_NAME='%s')"
+				+ ", TEL='%s"
+				+ ", BUSEO_ID=(SELECT BUSEO_ID FROM TBL_BUSEO WHERE BUSEO_NAME='%s')"
+				+ ", JIKWI_ID=(SELECT JIKWI_ID FROM TBL_JIKWI WHERE JIKWI_NAME='%s')"
+				+ ", BASICPAY=%d, SUDANG=%d"
+				+ " WHERE EMP_ID=%d"
+				, dto.getEmpName(), dto.getSsn(), dto.getIbsaDate()
+				, dto.getCityName(), dto.getTel(), dto.getBuseoName(), dto.getJikwiName()
+				, dto.getBasicPay(), dto.getSudang(), dto.getEmpId());
+		result = stmt.executeUpdate(sql);
+		stmt.close();
+		
+		return result;
+	}// end modify()
+	
+	
+	// 직원 데이터 삭제
+	public int remove(int empId) throws SQLException
+	{
+		int result = 0;
+		
+		Statement stmt = conn.createStatement();
+		String sql = String.format("DELETE FROM TBL_EMP WHERE EMP_ID=%d", empId);
+		result = stmt.executeUpdate(sql);
+		
+		stmt.close();
+		
+		return result;
+	}// end remove()
 }
