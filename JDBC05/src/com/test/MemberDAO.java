@@ -307,7 +307,7 @@ public class MemberDAO
 		String sql = String.format("UPDATE TBL_EMP"
 				+ " SET EMP_NAME='%s', SSN='%s', IBSADATE=TO_DATE('%s', 'YYYY-MM-DD')"
 				+ ", CITY_ID=(SELECT CITY_ID FROM TBL_CITY WHERE CITY_NAME='%s')"
-				+ ", TEL='%s"
+				+ ", TEL='%s'"
 				+ ", BUSEO_ID=(SELECT BUSEO_ID FROM TBL_BUSEO WHERE BUSEO_NAME='%s')"
 				+ ", JIKWI_ID=(SELECT JIKWI_ID FROM TBL_JIKWI WHERE JIKWI_NAME='%s')"
 				+ ", BASICPAY=%d, SUDANG=%d"

@@ -12,3 +12,10 @@ Statement (java.sql.Statement)는 Connection으로 연결한 객체에게, Query
 4. ResultSet rs = stmt.executeQuery(sql); // execueQuery() 메소드는 질의 결과를 ResultSet 객체로 가져올 수 있음
 
 5. executeUpdate()는 int / execueQuery()는 ResultSet
+
+------------------------------------------------------------------------
+
+DAO (변수선언, 작업 객체 생성, 쿼리문 준비, 쿼리문 실행, 리소스 반납, 값 반환)
+
+SERVICE (입력받기 → 데베 연결 → 내용 → 데베 연결 종료)
+
