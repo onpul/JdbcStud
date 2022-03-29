@@ -208,49 +208,49 @@ public class ScoreDAO
 	
 	
 	//학번 검색 출력
-		public ArrayList<ScoreDTO> search(int sid) throws SQLException
+	public ArrayList<ScoreDTO> search(int sid) throws SQLException
+	{
+		// 주요 변수 선언
+		ArrayList<ScoreDTO> result = new ArrayList<ScoreDTO>();
+		
+		//쿼리문 준비
+		String sql = "SELECT SID, NAME, KOR, ENG, MAT"
+				+ " ,(KOR + ENG + MAT) AS TOT"
+				+ " ,(KOR + ENG + MAT) / 3 AS AVG"
+				+ " FROM TBL_SCORE"
+				+ " WHERE SID = ?";
+		//작업 객체 생성
+		PreparedStatement pstmt = conn.prepareStatement(sql);
+		
+		//IN 매개변수
+		pstmt.setInt(1, sid);
+		
+		//쿼리문 실행
+		ResultSet rs = pstmt.executeQuery();
+		
+		while (rs.next())
 		{
-			// 주요 변수 선언
-			ArrayList<ScoreDTO> result = new ArrayList<ScoreDTO>();
+			ScoreDTO dto = new ScoreDTO();
+			dto.setSid(rs.getInt("SID"));
+			dto.setName(rs.getString("NAME"));
+			dto.setKor(rs.getInt("KOR"));
+			dto.setEng(rs.getInt("ENG"));
+			dto.setMat(rs.getInt("MAT"));
+			dto.setTot(rs.getInt("TOT"));
+			dto.setAvg(rs.getInt("AVG"));
 			
-			//쿼리문 준비
-			String sql = "SELECT SID, NAME, KOR, ENG, MAT"
-					+ " ,(KOR + ENG + MAT) AS TOT"
-					+ " ,(KOR + ENG + MAT) / 3 AS AVG"
-					+ " FROM TBL_SCORE"
-					+ " WHERE SID = ?";
-			//작업 객체 생성
-			PreparedStatement pstmt = conn.prepareStatement(sql);
-			
-			//IN 매개변수
-			pstmt.setInt(1, sid);
-			
-			//쿼리문 실행
-			ResultSet rs = pstmt.executeQuery();
-			
-			while (rs.next())
-			{
-				ScoreDTO dto = new ScoreDTO();
-				dto.setSid(rs.getInt("SID"));
-				dto.setName(rs.getString("NAME"));
-				dto.setKor(rs.getInt("KOR"));
-				dto.setEng(rs.getInt("ENG"));
-				dto.setMat(rs.getInt("MAT"));
-				dto.setTot(rs.getInt("TOT"));
-				dto.setAvg(rs.getInt("AVG"));
-				
-				result.add(dto);
-			}
-			
-			//리소스 반환
-			rs.close();
-			pstmt.close();
-			
-			
-			// 값 반환
-			return result;
-			
-		}//end search(int sid)
+			result.add(dto);
+		}
+		
+		//리소스 반환
+		rs.close();
+		pstmt.close();
+		
+		
+		// 값 반환
+		return result;
+		
+	}//end search(int sid)
 	
 
 	// 성적 수정
