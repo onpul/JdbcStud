@@ -15,8 +15,12 @@ import java.sql.SQLException;
 
 public class DBConn
 {
-	// 변수 선언
+	// 변수 선언(초기화하지 않은 상태)
 	private static Connection dbConn; // 추상적인 연결
+	/*
+	- Connection은 java.sql 패키지의 인터페이스
+	- Connection 타입의 변수 dbConn 선언
+	*/
 	
 	// 메소드 정의 → 연결
 	public static Connection getConnection() throws ClassNotFoundException, SQLException // 구체적인 연결
@@ -37,8 +41,10 @@ public class DBConn
 			String pwd = "tiger";
 			//-- 오라클 사용자 계정 암호
 			
-			Class.forName("oracle.jdbc.driver.OracleDriver"); // 스태틱 메소드이구나~
+			Class.forName("oracle.jdbc.driver.OracleDriver"); 
 			//-- OracleDriver 클래스에 대한 객체 생성(클래스 찾아줘~)
+			// Q. 이 부분이 왜 OracleDriver 클래스에 대한 객체 생성일까?
+			// forName() 메소드를 통해 데이터베이스와 연결할 드라이버 클래스를 찾아서 로드한다.
 			
 			dbConn = DriverManager.getConnection(url, user, pwd);
 			//-- 오라클 서버 실제 연결
@@ -84,15 +90,4 @@ public class DBConn
 		dbConn = null;
 		//-- 연결 객체 초기화
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-
 }
