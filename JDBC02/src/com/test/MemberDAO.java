@@ -74,7 +74,7 @@ public class MemberDAO
 		// 생성된 작업 객체를 활용하여 쿼리문 실행 → select → executeQuery() → ResultSet 반환 → 일반적으로 반복문 구성을 통한 ResultSet 처리
 		ResultSet rs = stmt.executeQuery(sql);
 		
-		// ResultSet 처리 → 반복문 구성 → 결과값 수진
+		// ResultSet 처리 → 반복문 구성 → 결과값 수신
 		while (rs.next())					// if (rs.next)
 		{
 			result = rs.getInt("COUNT");    // rs.getInt(1);		// ※ 컬럼 인덱스는 1 부터...

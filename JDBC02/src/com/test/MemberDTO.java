@@ -15,7 +15,7 @@ public class MemberDTO
 		return sid;
 	}
 
-	public void setSid(String sid)
+	public void setSid(	String sid)
 	{
 		this.sid = sid;
 	}
